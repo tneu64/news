@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Google Fonts -->
+    <!-- Swap out "Roboto" for the font(s) you want to use -->
+    <link href="https://fonts.googleapis.com/css?family=Bangers|Roboto+Mono|Ubuntu&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <!-- Your own CSS -->
+    <link rel="stylesheet" href="/styles.css">
+
+    <title>News</title>
+  </head>
+
+  <body>
+   <!-- Jumbotron -->
+   <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4"><span class="titleoverride"><%= params["location"] %> Weather and Some News</span></h1 class="display-4">
+      <p class="italics">Hopefully no clickbait</p>
+      <a href="/" class="btn btn-success">Go Back </a>      
+    </div>
+  </div>    
+
+   <!-- Stick  the headlines and weather and 2 columns? -->
+   <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <h2>Stuff You Should Know For Your Day:</h2>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <!-- This is the weather column -->
+        <div class="col-sm-6 text-center">
+          <h1><i class="far fa-sun"></i></h1>
+          <h5>Current Weather</h5>
+          <p> In <%= params["location"].upcase %>, it is currently <%= @current_temp %> degrees and <%= @current_summary.downcase %>.</p>
+          <h6> Extended Forecast: </h6>  
+            <div class ="row">
+                <% for day in @daily_forecast[1,6] %>
+                    <div class="col-sm-4 text-center">   
+                        <strong><%= Time.at(day["time"]).strftime("%A") %></strong>: A high of <%= day["temperatureHigh"] %> degrees, <%= day["summary"].downcase %>
+                    </div>
+                <% end %>
+            </div>           
+        </div>
+        
+        <!-- This is the headlines column -->
+        <div class="col-sm-6 text-center">
+          <h1><i class="far fa-newspaper"></i></h1>
+          <h5>Your Headlines</h5>
+            <div class ="row">
+                <% for article in @articles[0,10] %>
+                    <div class ="row">    
+                        <h6><a href=<%= article["url"] %>> <%= article["title"] %> </a></h6>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+        
+      </div>
+    </div>
+
+
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

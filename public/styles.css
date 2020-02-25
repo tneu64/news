@@ -1,0 +1,86 @@
+/* Typography */
+body {
+    
+    font-family: 'Ubuntu', sans-serif;
+    /* color: white; */
+    background-color:  rgb(40, 58, 73); 
+    
+ 
+  }
+  /* Headers */
+  h1, h2 {
+    font-family: 'Bangers', cursive;
+    color: yellow;
+  }
+
+  h2, h3, h4, h5, h6 {
+    font-family: 'Roboto Mono', monospace;
+    font-style: italic;
+    color: black;
+
+  }
+  /* And the "logo" */
+  .navbar-brand {
+    font-family: 'Bangers', cursive;
+    font-size: 40px;
+  }
+  .navbar-brand img {
+    width: 55px;
+    height: 55px;
+  }
+  .navbar-dark .navbar-brand {
+    color: rgb(235, 216, 48);
+  }
+   
+  
+  /* Jumbotron */
+   .jumbotron {
+    /* Background */
+    background-attachment: scroll;
+    background-image: url(https://wi-images.condecdn.net/image/doEYpG6Xd87/crop/810/f/weather.jpg);
+    background-repeat: repeat;
+    background-size: cover;
+  
+    /* Fonts */
+    font-family: 'Roboto Mono', monospace;
+    color: rgb(233, 203, 32);
+    text-shadow: 3px 3px 3px black;
+  }
+  
+  /* Grid columns */
+  .italics {
+      font-style: italic;
+  }
+    
+  .shadows {
+      text-shadow: 2px 2px 2px black;
+  }
+
+  .italicshadows {
+    text-shadow: 1px 1px 1px black;
+    font-style: italic;
+  }
+  
+ 
+ 
+/* Misc */
+  .titleoverride {
+    color: white;
+    text-shadow: 3px 3px 3px black;
+}
+    /* footer stuff */
+    .footer img {
+      height: 55px;  
+      width: 55px;
+      }
+
+    .footer h4 {
+        font-family: 'Bangers', cursive;
+    }  
+
+/* Forms page */
+.smallpic img {
+      border: 3px solid black
+}
+
+
